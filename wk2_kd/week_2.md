@@ -123,7 +123,7 @@ case to account for this change
 
 - Practise different approaches to modelling
 
-```
+```ruby
 
 # The order of the arguments passed in if important
 #Handling dependency injection
@@ -165,6 +165,445 @@ https://github.com/makersacademy/course/blob/master/week_outlines.md
 Understand and apply stubbing in test cases
 
 -------------------------
+
+## Dependency Injection
+## 12/03/19
+
+*Dependency Injection*
+This morning's suggested resource covers dependency injection. You'll need to get comfortable applying this technique in order to make sure your classes, and therefore your tests, are isolated.
+Here is the practical exercise: https://github.com/makersacademy/skills-workshops/blob/master/practicals/object_oriented_design/dependency_injection.md
+
+
+Notes:
+
+- Instead of hard coding the dependency, we 'inject' it into the class via the initializer.
+
+------
+
+## Pair Programming Feedback
+
+
+**Feedback Received**
+**11/03/19**
+
+From a peer, Masha(March 2019):
+
+Hi Kim! Thank you for the wonderful session yesterday - it's been really fun!
+
+What went well: 
+- You are great in reading instructions and do research before doing any work - makes overall process much smoother
+- You know how to explain things 
+- You appreciate breaks
+- You check on your pair's wellbeing, I personally keep forgetting that
+- Great TDD skills
+
+What did not go so well:
+- Actually, can't think of a single thing but I feel like both of us need to improve our understanding of doubles etc
+- Theoretically, if were slightly more serious we could've finished the whole thing but I'd rather have fun tbh!
+
+Overall - one of the best pairing experiences I've had so far!
+
+--------
+
+**Feedback Received**
+**12/03/19**
+
+From a peer, Alex (March 2019):
+
++ good to help me when im stuck
++ careful thinking solves some errors which i miss out
++ quick to point out the issues i had which were my bottleneck 
+
+- abit lost at times, maybe have some direction 
+- have a moment to try to think of right approach and implement rather than trying everything
+
+---------
+
+## Domain Model Diagramming Workshop
+## 13/03/19
+
+### Questions:
+
+Q. UML has lots of models: should we know about all these different types?
+Are there most commonly used ones?
+ How complex should a model be?
+
+ **Coach Advice:**
+
+Link to resources: https://www.ibm.com/developerworks/rational/library/769.html
+
+A diagram should be useful for communicating ideas. The diagram can be very detailed, but if it's not communicating effectively, then there is no point going to the nth degree.
+
+- Depends on the domain and concept / depends who you're presenting the diagram too
+
+- Keep it simple! Break it down
+
+
+- Process diagram is pretty cool
+
+Sequence Diagram
+- Actors / classes for OOP (also can represent modules in other languages)
+- Messages (Methods)
+- No need to think about the user interface (the user is outside the scope of the domain)
+
+- *Testing behaviour over state* v useful
+
+
+- Are there any useful tools for diagramming?
+
+Choose the most appropriate tool for the problem you're trying to solve
+
+https://www.draw.io
+> UML template
+
+Sophie Gill [12:27 PM]
+*Key points from the session:*
+- Class diagrams capture the messages a class can receive
+- Sequence diagrams the messages sent from one class to another, and the value returned
+- Messages are verbs, classes are nouns
+- The diagrams capture different things - neither by themselves gives a complete picture of the application
+
+*Going further*
+- Try turning your diagram into a working application, integrate TDD into this process if you have time.
+- Create a diagram of your Boris Bikes, Airport Challenge or Oystercard application
+
+**Coach Advice:**
+
+- Don't use diagramming in place of TDD; diagramming is a useful way of fleshing out the user stories etc.
+
+
+
+------
+
+## Makers - Feedback Workshop 
+## 13/03/19
+## Dana
+
+**What is feedback?**
+
+>Information used as basis for improvement
+
+1. Shift your perspective
+  It is just feedback
+  Trust
+  Feedback is kind
+2. Empowered receiver
+  - help us undestand ourselves
+  - practice assertiveness, boundaries etc
+  - flexibility
+3. Know thyself
+Truth triggers
+relationship triggers
+identity triggers
+
+wrong-spotting
+
+we all have blind spots
+
+**Building resilience**
+- understand your profile
+- what's your happiness set point?
+- way to increase your happiness baseline (mindfulness!!!!)
+
+**Swing**
+
+- How deeply you emote (high swing LOL)
+
+**Recovery/sustain**
+
+- How long does it take you to return to your baseline happiness?
+
+- empathy to others who are different to you
+
+4. Understand feedback
+
+Appreciation
+Evaluation
+Coaching
+
+5. Use a framework
+
+A - Actionable
+S - Specific
+K - Kind
+
+
+-----------
+
+## Delegation Workshop
+## 14/03/19
+## Sophie Gill
+
+https://github.com/makersacademy/skills-workshops/tree/master/week-2/oop_3
+
+
+**Learning objectives**
+1. Describe "delegation" as "one class telling another class to do something and the other class encapsulating how to do it."
+2. Explain what is meant by the advice "delegate, delegate, delegate".
+3. Implement OOP delegation.
+
+- Public interface enables control to access certain methods of a class
+
+**Encapsulation**
+  - Private (encapsulates) characteristics of the class ; we don't want to change these characteristics from outside of the class
+
+
+  ```
+
+  class Ceo
+  ## Coo is injected as a dependency
+  def initialize(coo = Coo.new)
+    @coo = coo
+  end
+
+  def make_company_efficient
+  ##Ceo calls the .find_company_savingsof the coo class
+    @coo.find_company_savings
+  end
+end
+
+class Coo
+## hr_manager is injected as a dependency
+  def initialize(hr_manager)
+    @entertainment_budget = 1000
+    @hr_manager = hr_manager
+  end
+
+  def find_company_savings
+    reduce_entertainment_budget
+    ##COO calls the .reduce_payroll method of the hr_manager class
+    @hr_manager.reduce_payroll
+  end
+
+  private
+
+  def reduce_entertainment_budget
+    @entertainment_budget -= 200
+  end
+end
+
+class HrManager
+  def initialize(employees)
+    @employees = employees
+  end
+
+  def reduce_payroll
+    @employees
+      .select { |employee| employee.performance < 7 }
+      .each(&:fire)
+  end
+end
+
+class Employee
+  def fire
+    @fired = true
+  end
+
+  def performance
+    rand(1..10)
+  end
+end
+
+employees = [Employee.new, Employee.new]
+hr_manager = HrManager.new(employees)
+coo = Coo.new(hr_manager)
+ceo = Ceo.new(coo)
+ceo.make_company_efficient
+
+```
+
+**Questions**
+
+
+**Why pass dependencies all the way down the code?**
+
+Dependency injection opens up the ability for polymorphism:
+- Enables different types of objects that respond to the same object
+
+
+**Why did we inject hr_manager into the COO without `HrManager.new?` Is this a new instance we are passing in?**
+
+- It is just another way of writing the dependency injection like so: 
+
+`lydia = HrManager.new(employees)`
+`brad = Coo.new([:table, :chair], 1200, lydia)`
+
+
+**Coach Advice**
+- We should try and keep our classes isolated to make it easy to change
+
+- Set a default for the dependency injection where possible in case you forget to instanstiate the class which is being injected into the class you are creating (it will default to the default value)
+
+-----
+
+## Plenary
+
+**Questions**
+
+**Coach Advice**
+
+- If we inject the class itself, we can work with as many instances as we would like
+
+Example:
+
+```ruby
+def add(description, todo_class = Todo)
+    @todos << todo_class.new(description)
+end
+
+```
+
+- Can wrap instance variables into methods
+
+Here's an example:
+
+```ruby
+
+def all
+  @todos
+end
+
+```
+
+- You can interact with the class itself by the dependency injection
+- Notice in the example below, `TodoListPrinter` is not instantiated
+
+Rule: If there is no state, there is no need for instances; in this example, `TodoListPrinter` just has behaviours we want to utilise
+
+- `TodoListPrinter` is not a class, it is a module.
+
+Here's the example: 
+
+```ruby
+def to_string(todo_list_printer = TodoListPrinter)
+  todo_list_printer.to_string(all)
+end
+
+```
+
+Here's the example:
+
+In the example below, `TodoListPrinter` is delgating the part of the activity to `todo_printer` which is why it requires the `./todo_printer` on the first line of the code.
+
+```ruby
+require_relative "./todo_printer"
+
+module TodoListPrinter
+  def self.to_string(todos, todo_printer = TodoPrinter)
+    todos.each_with_index.map { |todo, index|
+      todo_printer.to_string(todo, index + 1)
+    }.join("\n")
+  end
+end
+```
+
+- Modules can have private methods
+
+```ruby
+module TodoPrinter
+  def self.to_string(todo, index)
+    description = todo.description
+    complete = todo_completion_to_s(todo)
+    "#{index}. #{description} #{complete}"
+  end
+
+  private
+
+  def self.todo_completion_to_s(todo)
+    todo.complete? ? "complete" : "not complete"
+  end
+end
+```
+
+**using a similar names in related delegation activities can help to trace more complex code delegation**
+
+No need to be fixed to one way chaining, objects can be passed around
+
+
+Advice: Use `puts` or `p` to check what each component is to see how they're connected
+
+
+**Q.
+How do we manage the RSpec testing at the same time as migrating functionality and delegation?**
+
+A.
+```ruby
+#Here, we are handling the todo dependency by creating a todo double and a todo_class double, with a mock of `new` todo
+
+describe TodoList do
+  let(:todo) { double(:todo) }
+  let(:todo_class) { double(:todo_class, new: todo) }
+```
+
+- Ordering is important in mocks on RSpec files
+
+```ruby
+ describe "setting a todo to be complete" do
+    it "sets a todo to be complete", focus: true do
+      subject.add("say hi", todo_class)
+#Set the expectation on the mock in the line below, before you can test the behaviour of the delegation
+#The double needs to know that something needs to happen before you conduct the action (ToDoList.set_complete(0))
+      expect(todo).to receive(:set_complete)
+#action is conducted to trigger set_complete. testing that the `todo` is receiving the delegation that we are expecting when we do `ToDoList.set_complete(0)`
+      subject.set_complete(0)
+    end
+  end
+  ```
+
+  In the example below, it looks as if we are testing state rather than the behaviour. This is not ideal. It is actually better to test the behaviour. 
+
+
+  ```ruby
+  describe "adding a todo" do
+    it "stores a todo with a description" do
+      expect(todo_class).to receive(:new)
+      subject.add("say hi", todo_class)
+      #On the line below, we are refering to .to eq (todo) which is testing the state
+      expect(subject.get(0)).to eq(todo)
+    end
+
+  ```
+
+**Top tips:**
+  - Always better think about testing what the method returns and test that result
+  - Testing behaviour is preferred over testing the state
+  - Question to think about: What is the most useful thing a method can return from action?
+
+
+
+**Conclusion:**
+
+ - Of course, there are different approaches to testing - there are many approaches and strategies in the industry
+
+ - The sort of pattern that we did in the exercise gets us closer to the Single Responsibility Principle (SRP)
+
+ - Useful to get to reusable pieces of code
+
+ - Can delegate through different levels of the chain, doesn't have to be a top-down approach
+
+ - Think about: What is the result of calling a method? What is the result of calling the method in different circumstances? 
+ 
+ e.g. adding a single 'todo', adding more than one 'todo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
