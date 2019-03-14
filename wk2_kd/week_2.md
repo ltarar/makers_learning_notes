@@ -256,7 +256,10 @@ Choose the most appropriate tool for the problem you're trying to solve
 https://www.draw.io
 > UML template
 
-Sophie Gill [12:27 PM]
+**Coach Advice:**
+
+- Don't use diagramming in place of TDD; diagramming is a useful way of fleshing out the user stories etc.
+
 *Key points from the session:*
 - Class diagrams capture the messages a class can receive
 - Sequence diagrams the messages sent from one class to another, and the value returned
@@ -266,12 +269,6 @@ Sophie Gill [12:27 PM]
 *Going further*
 - Try turning your diagram into a working application, integrate TDD into this process if you have time.
 - Create a diagram of your Boris Bikes, Airport Challenge or Oystercard application
-
-**Coach Advice:**
-
-- Don't use diagramming in place of TDD; diagramming is a useful way of fleshing out the user stories etc.
-
-
 
 ------
 
@@ -329,6 +326,15 @@ K - Kind
 
 
 -----------
+
+**Feedback Received**
+**13/03/19**
+
+From a peer, Tome (March 2019):
+
+"You were really engaged and open to trying different approaches. You were also enthusiastic even though you had already done all the exercises, it felt like we were learning together and on the same page the entire time."
+
+----------
 
 ## Delegation Workshop
 ## 14/03/19
@@ -434,7 +440,17 @@ Dependency injection opens up the ability for polymorphism:
 
 - Set a default for the dependency injection where possible in case you forget to instanstiate the class which is being injected into the class you are creating (it will default to the default value)
 
+
+
 -----
+
+Notes:
+- Delegation - one class instructing another class to do something
+- Encapsulation - a class includes the state and behaviour to do something
+- Aim to extract the `terrible` example into classes, for `great`
+- Keep your feature tests passing as much as possible
+- Dependency Injection enables delegation, while keeping classes isolated
+See you back at the second floor at 11:30am. I'll be upstairs for questions during the exercise.
 
 ## Plenary
 
@@ -585,8 +601,12 @@ describe TodoList do
  
  e.g. adding a single 'todo', adding more than one 'todo
 
+-------
 
+##Pair Programming Feedback
 
+**Feedback Received**
+**14/03/19**
 
 
 
