@@ -609,6 +609,47 @@ describe TodoList do
 **14/03/19**
 
 
+to do:
+Directory structure:
+
+wk_x:
+
+Folder: Overview:
+  `week_overview.md`
+  `workshop1_notes.md`
+  `workshop2_notes.md`
+
+Folder: Practicals:
+
+- Sub-folder
+`pratical_write_up.md`
+
+- Sub-folder
+`pair_programming_notes.md`
+
+Folder: Skills_workshops:
+
+- Sub-folder
+`skills_workshop.md`
+- Sub-folder
+`skills_workshop.md`
+
+It { is_expected.to respond_to(:bike) } is the short way of writing 
+it “accepts the method bike” do
+
+expect(DockingStation).to respond_to(:bike) 
+end
+
+It gets rid of description(accepts the method bike) and replaces do end with {}
+
+And when we expecting an error we use {} because we running a block of code and expecting the message in the console. If you use () for this the error will also be raised but rspec would not expect it
+
+{} is the block (or do...end) while () has argument inside
+
+Run this {block of code} and expect something
+Vs 
+Use this (argument) and expect something
+
 
 
 
