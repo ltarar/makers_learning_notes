@@ -609,47 +609,57 @@ describe TodoList do
 **14/03/19**
 
 
-to do:
-Directory structure:
 
-wk_x:
+-----
 
-Folder: Overview:
-  `week_overview.md`
-  `workshop1_notes.md`
-  `workshop2_notes.md`
+**RSpec syntax notes**
 
-Folder: Practicals:
+From Masha's post on Slack:
 
-- Sub-folder
-`pratical_write_up.md`
+`it { is_expected.to respond_to(:bike) }` is the short way of writing 
 
-- Sub-folder
-`pair_programming_notes.md`
-
-Folder: Skills_workshops:
-
-- Sub-folder
-`skills_workshop.md`
-- Sub-folder
-`skills_workshop.md`
-
-It { is_expected.to respond_to(:bike) } is the short way of writing 
+```ruby
 it “accepts the method bike” do
-
-expect(DockingStation).to respond_to(:bike) 
+  expect(DockingStation).to respond_to(:bike) 
 end
+```
 
-It gets rid of description(accepts the method bike) and replaces do end with {}
+`it` gets rid of description(accepts the method bike) and replaces do end with `{}`
 
-And when we expecting an error we use {} because we running a block of code and expecting the message in the console. If you use () for this the error will also be raised but rspec would not expect it
+And when we expecting an error we use `{}` because we running a block of code and expecting the message in the console. If you use () for this the error will also be raised but rspec would not expect it
 
-{} is the block (or do...end) while () has argument inside
+`{}` is the block (or do...end) while `()` has argument inside
 
 Run this {block of code} and expect something
-Vs 
+
+Vs.
+
 Use this (argument) and expect something
 
+
+---------
+
+**RSpec Definition**
+
+https://medium.com/@derek_dyer/ruby-rspec-mocks-stubs-7b21ea176b13
+
+Double: It’s a dumb object we create that stands-in for an object we need in order to test something.
+
+Stub: Stubs allow an object to receive messages/methods. Usually they’re Doubles but we can allow ‘real’ objects to receive m=essages/methods too. i.e.  replacing calls with prebuilt responses.
+
+Mock: Objects with expectations. Key word being expect. It is for testing behaviour.
+
+- Double:
+https://apidock.com/rspec/Spec/Mocks/ExampleMethods/double
+
+
+**Coach Tips**
+
+- Go back and read through your last weekend challenge. Could you refactor your code to make it better?
+- Explain a concept to someone in your cohort - do they understand and agree with your definition?
+- Read through some code you didn't write - do you understand what it does? Can you give any helpful feedback on the code?
+- Set aside time to go over the work you have done that day. Are there any gaps in your knowledge? What are you going to do to about them?
+- Spend 30 minutes repeating a small challenge from a workshop or practical that you struggled with last week. Are you able to do more of the challenge this week?
 
 
 
