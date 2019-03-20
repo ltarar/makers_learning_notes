@@ -357,6 +357,8 @@ In Sinatra, you can see the `backtrace` on the website when you try it out to he
 It is also useful to get visibility without having to go through the whole app by using Capybara.
 
 - Add `save_and_open_page` in the feature test file (use Capybara to have an idea of the user journey of what is happening at a certain point)
+https://www.rubydoc.info/github/jnicklas/capybara/Capybara%2FSession:save_and_open_page
+Save a snapshot of the page and open it in a browser for inspection.
 
 **Get visibility on requests from the server logs**
 
