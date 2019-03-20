@@ -273,20 +273,24 @@ https://github.com/makersacademy/skills-workshops/tree/master/week-3/debugging_2
 2. Explain the mantra 'Tighten the loop; Get visibility'
 3. Use the mantra to resolve bugs across the web stack.
 
-Tighten the loop
-Get visibility
+### Tighten the loop
+### Get visibility
 
 **Different components:**
 - Client-side
 - Server-side
 
 
-**Server:**
+**Server-Side:**
 
+Assets/Static/Public e.g. images/CSS etc.
 Model e.g. `.rb` files `/model/`
 Views e.g. `.erb` files, HTML, Ruby
 Controller e.g. `app.rb` it is in charge of the routing
-Gems
+
+Gems:
+  - config.ru
+  - Gemfile
 
 
 **Naming Rules of Thumb:**
@@ -295,6 +299,55 @@ Gems
 - Noun
 - Come from the domain
 
+
+**How to tighten the loop:**
+
+1. Understand the whole journey of the code execution (requests/responses)
+2. Request > Controller (look at the controller for what is triggered by GET/POST requests)
+3. Controller then goes to the view and processes it. The `erb` method is called (we pass the `.erb` file as the argument to `erb` method), processes and return it
+
+e.g. 
+
+```ruby
+
+#get is the sinatra method
+get '/' do
+  erb(:index)
+  #return erb(:index)
+end
+
+```
+
+It is possible to go back and forth between the model and the controller and views e.g.
+
+Request
+Controller
+Model
+Controller
+Views
+Routing
+Response
+etc.
+
+4. HTML is sent back to the user as a response
+
+
+**Get visibility**
+
+- Use `p`
+- In the server logs
+
+
+- Shotgun (works with a `config.ru` file): the logs might not be useful all the time so take caution when debugging
+- When debugging use `ruby app.rb`
+- Error code: 500 - Internal Server Error
+
+Here are the status codes:
+
+2xx OK
+3xx Redirection
+4xx bad request
+5xx server problem
 
 
 
