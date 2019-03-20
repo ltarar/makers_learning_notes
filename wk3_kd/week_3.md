@@ -3,9 +3,7 @@
 
 ## Code Review Workshop - Reviewing the takeaway_challenge
 ## 18/03/19
-
- ## Coach Advice
- - Katerina
+## Coach: Katerina
  
 **Why do code reviews?**
 
@@ -127,4 +125,188 @@ https://howhttps.works/
 https://howdns.works/ep1/
 
 ---
+
+## Process Modelling Workshop
+## Coach: Alice
+## 19/03/19
+
+https://github.com/makersacademy/skills-workshops/tree/master/week-3/process_modelling
+
+0. Goals Recap
+
+- Building a simple web app
+- Follow an effective debugging process for web applications
+- Explain the basics of how the web works
+- Explain the MVC pattern
+
+Client - Request - Server - Response - Client
+
+Client - e.g. Browsers
+
+Server: It is a piece of software that runs on a computer that holds info
+
+Data centers
+
+Web Development:
+- Web development happens in the server most of the time, but sometimes where are things that happen on the client-side and not the server-side
+- If I get the request, what response do I give back?
+
+Client or server-side?
+JS is the only client-side programming language, but possible to compile another language into JS for use in client-side
+JQuery is a JavaScript library
+
+**Process Modelling**
+
+- Define process modelling as a tool to describe and understand a process.
+- Use process modelling to further your understanding of HTTP requests and responses.
+
+## Homepage
+
+```
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Req/Res</title>
+  </head>
+  <body>
+    <ul>
+      <a href="list.html">a list</a>
+      <a href="cats.html">a cat pic</a>
+    </ul>
+  </body>
+</html>
+
+```
+
+1. User enters URL - https://makers-cats.herokuapp.com/
+2. GET request
+3. Server looks for resource
+4. Writes a response
+  Header
+  Response Headers
+  The Body (HTML)
+5. Browser reads the response
+6. The user sees the site
+
+Web:
+  HTTPS
+  HTML
+
+  HTTP/1.1 200 OK
+    1.1. is the version
+    Status Code 200 - OK
+
+https://www.restapitutorial.com/httpstatuscodes.html
+The starred codes are the most common ones :)
+
+The browser:
+
+1. Parse - e.g. Finding HTML tags and what they mean
+2. Render - creating some images / boxes / colours
+3. Paint - putting it on the screen
+
+
+There many be a queue of requests!
+
+
+Some testing tools use Headless Browsers
+- Where tests can run on the background
+
+For example, Selenium testing tool:
+Selenium Headless Browser Testing
+
+Reference:
+https://www.guru99.com/selenium-with-htmlunit-driver-phantomjs.html
+
+Selenium Web driver is a web automation tool which enables you to run the tests against different browsers.
+
+What Is Headless Browser?
+A headless browser is a web-browser without a graphical user interface. This program will behave just like a browser but will not show any GUI.
+
+Some of the examples of Headless Drivers include
+
+- HtmlUnit
+- Ghost
+- PhantomJS
+- ZombieJS
+- Watir-webdriver
+
+- Header and body in POST request, as well as GET request
+
+- In the GET request, there is no body
+- In the POST request, there is data in the body
+
+---
+
+## Coach Advice
+## Alice
+
+This morning we covered the *HTTP request/response cycle* in our workshop.
+- We talked about what the *web* is and what what *servers* are (software running on computers that store resources)
+- We talked about how to *use the network tab* in your navigator's dev tools to see what requests are sent on the network
+- We created some *diagrams* and role played *browser <-> network <-> server* interactions
+- We saw that *each resource needs one separate request*
+- We learned that requests and responses have two parts (*header and body*)
+
+
+Also, as a reminder, here are the goals for this week. Whenever you are working on something this week, try to think about which one you are progressing on.
+
+- Build a simple web app
+- Follow an effective debugging process for web applications
+- Explain the basics of how the web works (e.g. request/response, HTTP, HTML, CSS)
+- Explain the MVC pattern
+
+---
+
+## Debugging Workshop 2 - Debugging Web Apps
+## Coach: Alice
+## 20/03/19
+
+https://github.com/makersacademy/skills-workshops/tree/master/week-3/debugging_2
+
+- Tightening the loop and getting visibility (on the web).
+
+**Learning Objectives**
+1. Define 'debugging' as the process of eliminating bugs from an expected program output
+2. Explain the mantra 'Tighten the loop; Get visibility'
+3. Use the mantra to resolve bugs across the web stack.
+
+Tighten the loop
+Get visibility
+
+**Different components:**
+- Client-side
+- Server-side
+
+
+**Server:**
+
+Model e.g. `.rb` files `/model/`
+Views e.g. `.erb` files, HTML, Ruby
+Controller e.g. `app.rb` it is in charge of the routing
+Gems
+
+
+**Naming Rules of Thumb:**
+
+- Naming of classes should be singular rather than plural
+- Noun
+- Come from the domain
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

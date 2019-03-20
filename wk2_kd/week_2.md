@@ -178,45 +178,6 @@ Notes:
 
 - Instead of hard coding the dependency, we 'inject' it into the class via the initializer.
 
-------
-
-## Pair Programming Feedback
-
-
-**Feedback Received**
-**11/03/19**
-
-From a peer, Masha(March 2019):
-
-Hi Kim! Thank you for the wonderful session yesterday - it's been really fun!
-
-What went well: 
-- You are great in reading instructions and do research before doing any work - makes overall process much smoother
-- You know how to explain things 
-- You appreciate breaks
-- You check on your pair's wellbeing, I personally keep forgetting that
-- Great TDD skills
-
-What did not go so well:
-- Actually, can't think of a single thing but I feel like both of us need to improve our understanding of doubles etc
-- Theoretically, if were slightly more serious we could've finished the whole thing but I'd rather have fun tbh!
-
-Overall - one of the best pairing experiences I've had so far!
-
---------
-
-**Feedback Received**
-**12/03/19**
-
-From a peer, Alex (March 2019):
-
-+ good to help me when im stuck
-+ careful thinking solves some errors which i miss out
-+ quick to point out the issues i had which were my bottleneck 
-
-- abit lost at times, maybe have some direction 
-- have a moment to try to think of right approach and implement rather than trying everything
-
 ---------
 
 ## Domain Model Diagramming Workshop
@@ -323,16 +284,6 @@ Coaching
 A - Actionable
 S - Specific
 K - Kind
-
-
------------
-
-**Feedback Received**
-**13/03/19**
-
-From a peer, Tome (March 2019):
-
-"You were really engaged and open to trying different approaches. You were also enthusiastic even though you had already done all the exercises, it felt like we were learning together and on the same page the entire time."
 
 ----------
 
@@ -600,15 +551,6 @@ describe TodoList do
  - Think about: What is the result of calling a method? What is the result of calling the method in different circumstances? 
  
  e.g. adding a single 'todo', adding more than one 'todo
-
--------
-
-##Pair Programming Feedback
-
-**Feedback Received**
-**14/03/19**
-
-
 
 -----
 
