@@ -337,9 +337,10 @@ etc.
 - Use `p`
 - In the server logs
 
-
 - Shotgun (works with a `config.ru` file): the logs might not be useful all the time so take caution when debugging
 - When debugging use `ruby app.rb`
+
+- Look at error
 - Error code: 500 - Internal Server Error
 
 Here are the status codes:
@@ -348,6 +349,16 @@ Here are the status codes:
 3xx Redirection
 4xx bad request
 5xx server problem
+
+In Sinatra, you can see the `backtrace` on the website when you try it out to help you get visibility on the error
+
+**Get visibility on the test files - Capybara**
+
+It is also useful to get visibility without having to go through the whole app by using Capybara.
+
+- Add `save_and_open_page` in the feature test file (use Capybara to have an idea of the user journey of what is happening at a certain point)
+
+**Get visibility on requests from the server logs**
 
 
 
