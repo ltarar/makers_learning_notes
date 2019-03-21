@@ -362,6 +362,27 @@ Save a snapshot of the page and open it in a browser for inspection.
 
 **Get visibility on requests from the server logs**
 
+---
+
+Slack info:
+
+For everyone up to the ‘POST/redirect/GET pattern’ section and wondering why your input isn’t showing up on your site; add this line to the top of your battle class and all will be well:
+
+`configure(:development) { set :session_secret, "something" }`
+
+https://stackoverflow.com/questions/9827151/shotgun-gets-new-sessions-every-time-cant-store-data-in-sessions
+
+---
+
+## Birthday App Practical
+## Coach: Katerina
+## 21/03/19
+
+**Description**
+Thursday morning challenge. This will test and help you verify your current understanding of what you’ve done so far this week and if you are able to complete it then you can get feedback from a coach and use it as evidence for your portfolio.
+
+https://github.com/makersacademy/course/blob/master/intro_to_the_web/post_challenges/birthday_app.md
+
 
 
 
