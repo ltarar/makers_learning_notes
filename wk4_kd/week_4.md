@@ -108,3 +108,80 @@ RSpec - a Domain Specific Language (DSL)
 **Connecting Ruby to the Postgres database**
 - PG Gem allows you to establish the connection between your Ruby code and your Postgres database
 - Enables you to write SQL in your Ruby code - awesome stuff!! :)
+
+----
+
+## Database: Class Responsibility Collaborator Cards Workshop
+## 26/03/19
+## Coach: Katerina
+
+https://github.com/makersacademy/skills-workshops/tree/master/week-4/databases_2
+
+- Foreign Key: Keys brought into a table which is not native to the table, but came from another table
+
+- Primary key is static in most cases
+
+- In the industry, you can restore a database from a backup (regular backups for important for managing risk of data loss)
+
+- Data restrictions on the data entered e.g. setting character limits
+
+- PG Gem connection
+
+- May need to reformat / clean the data source to suit your program the bests
+
+----
+
+**Class Responsibility Collaborator Cards:**
+
+- Tells you want a class does: Object Name
+- Responsibilities: Methods
+- Collaborators: Dependencies (other Classes)
+
+**Why might we use a model of our domain?**
+
+- Gives a holistic overview of our program
+- It's better to go through a modelling stage for a project and get feedback to minimise the costs of coding it up and scrapping the code
+
+- Extract database structure from CRC
+
+http://agilemodeling.com/artifacts/crcModel.htm
+
+- Use the behaviour to model
+
+|  Docking Station    |          |
+|---------------------|----------|
+|   release bike      |  bike    |
+|   dock bike         |          |
+|   count bike        |          |
+
+
+|  Bike               |          |
+|---------------------|----------|
+|  working?           |          |
+
+
+Database tables
+- Docking Stations
+- Bikes
+
+
+Bikes
+
+|  id         | working? | docking_station_id (Foreign Key)
+|-------------|----------|----------------------------------
+|  1          |  true    |        1
+|  2          |  false   |        2
+
+
+Docking Station
+
+|  id         |          |
+|-------------|----------|
+|  1          |          |
+|  2          |          |
+
+
+**Associations in databases**
+
+- Docking station "has a" bike
+- Relate by using a foreign key (FK) in the bike table
