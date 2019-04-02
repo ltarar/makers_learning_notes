@@ -68,3 +68,102 @@ Callbacks and following the flow of control
 Resources:
 Count app: A tiny JavaScript/Sinatra app that mimics the architecture of the Thermostat app. A useful guide for developers to use for concepts and idioms.
 
+-----
+
+## Encapsulation with the Constructor and Prototype Pattern Workshop
+## 02/04/19
+## Coach: Katerina
+
+https://github.com/makersacademy/skills-workshops/tree/master/week-5/encapsulation_with_constructor_and_prototype_pattern
+
+- Learn new language and its patterns;
+- Getting visibility to understand a pattern;
+- Encapsulating code with constructors and prototypes; 
+- Using this pattern to encapsulate code;
+
+**Encapsulation**
+
+Definition: Hide implementation from the outside world! Protective barrier for the code
+
+Grouping behaviour with the data (state) it operates on.
+Hiding the details of data and implementation from other units.
+
+**Ruby Implementation**
+In Ruby, we can make methods of classes `private` to hide it from other classes (external objects).
+We don't want too many relationships between classes, as too many dependencies etc.
+Usually, you'll have one manager to manage the objects to abstract the code.
+
+If you are finding yourself using a lot of methods from another class, it's a sign that those methods may belong to the original class.
+
+**Console**
+
+JS console is just like Ruby's `irb` - REPL.
+
+```javascript
+
+//using constructor pattern to create object and add state to object
+
+function Adult() {}
+adult = new Adult()
+
+//Adult {}
+//Every object in JS inherits from prototype object
+//Adult {}__proto__: Object - JS automatically adds a proto property onto the object
+
+
+function Adult(age) { 
+  this.age = age; 
+  }
+adult = new Adult
+//Adult {age: undefined}
+//age: undefined
+//__proto__: Object
+
+
+adultTwo = new Adult(30)
+//Adult {age: 30}
+
+
+//using prototype pattern - now we will encapsulate behaviour to an object
+
+Adult.prototype.increaseAge = function() {
+  this.age += 10;
+}
+
+//If you call the function without the argument, the function is still available for the object
+adultTwo.increaseAge
+
+/* ƒ () {
+  this.age += 10;
+} */
+
+adultTwo.increaseAge()
+//undefined - as we are not returning anything
+
+adultTwo.age
+//40
+
+//JS - important to do explicit return
+//If we are changing the state, we may not need to be explicit in the return
+
+
+```
+
+- Functions need to be named consistently
+- Underscore convention
+
+- In JS, we can wrap functions inside other functions
+- Use capital letter to define the object
+- Other functions will be in lowercase
+
+
+- JS - Property-Value pairs
+- Objects have properties/attributes
+
+
+
+
+
+
+
+
