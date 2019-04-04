@@ -160,6 +160,128 @@ adultTwo.age
 - JS - Property-Value pairs
 - Objects have properties/attributes
 
+----
+
+## Debugging Workshop
+## 03/04/19
+https://github.com/makersacademy/skills-workshops/tree/master/week-5/following_the_flow_and_getting_visibility_in_javascript
+
+----
+
+## Following the flow of data with callbacks and AJAX Workshop
+## 04/04/19
+## Ed
+
+https://github.com/makersacademy/skills-workshops/tree/master/week-5/following_ajax_request_response_cycle
+https://github.com/makersacademy/skills-workshops/tree/master/week-5/callbacks_following_the_flow_of_control
+
+```html
+
+<!-- start to build the DOM - document object model - HTML tree structure - node/elements -->
+<!doctype html>
+<html>
+  <head>
+    <!-- load JQuery from a URL - request data from a server -->
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+
+    <!-- AJAX - Asynchronous JavaScript -->
+    <!-- GET request sent to server which is hosted by Heroku -->
+    <!-- The GET method is asynchronous - the request waits for the response to come back -->
+    <!-- we don't want the call back function to execute (second argument) until the first argument has finished -->
+    <!-- the data we get back is stored in 'peopleResponse'  -->
+    <!-- in JS, the asynchronous request is powerful, so you don't just load the whole html in one go -->
+    <!-- data can be fetched via API from servers and present in the DOM -->
+    <script>
+      // The '$' sign is the container part of the JQuery library - the browser stores this in memory
+      // sources - file system in the browser
+      //CDN - content distribution network
+      $.get("https://async-workshops-api.herokuapp.com/people", function(peopleResponse) {
+        //take the first element (target the 'name' key and take the value), of people response
+        // The '#person' gets the element from the id="person"
+        $("#person").html(peopleResponse[0].name);
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- once the script is executed, the div will be updated with the name of the person -->
+    <div id="person">No one</div>
+  </body>
+</html>
+
+```
+
+## AJAX - Asynchronous JavaScript:
+- Important for user experience, as don't have to wait for request-response to finish everything before presenting something to the page
+- JQuery is like a wrapper/framework to simplify the JS
+
+## Requests in JS are asynchronous, unless you tell it otherwise
+
+
+- Pros and cons to keep resources locally vs. externally e.g. JQuery library
+
+External:
+JQuery is stored in browser memory when you have requested for it
+
+## When do you get the XML object?
+- `$.get` is when the XML object is created;
+-  `$` is the wrapper
+
+
+```javascript
+
+console.log(1);
+console.log('hello');
+console.log(2);
+
+document.addEventListener('click', function() {
+  console.log(3);
+  console.log("click!");
+});
+
+console.log(4);
+
+//here is what we see in the console.log
+
+//1
+//'hello'
+//2
+//4
+
+//At this point the click hasn't happened yet
+//this is the idea of asynchronous behaviour
+
+```
+
+```javascript
+//this is a bad example
+var getReturnValue = $.get("https://async-workshops-api.herokuapp.com/people", function(peopleResponse) {
+  return peopleResponse;
+  });
+
+  //getReturnValue is the variable storing the request-response object - it is not the data!
+  //within the callback function, you can work with the data
+```
+
+- We need to wait for the response to come back and then we can work with it, in case the server is broken; this is asynchronous JS
+
+- Explore JS Promise!
+
+----
+
+- Common way to represent data in a format:
+
+  - JSON (JavaScript Object Notation)
+  - XML
+
+
+
+
+
+
+
+
+
 
 
 
